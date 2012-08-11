@@ -1,5 +1,6 @@
 #!/usr/bin/env php
 <?php
+require_once(dirname(__FILE__) . '/vendor/autoload.php');
 require_once(dirname(__FILE__) . '/vendor/pecs/lib/pecs.php');
 require_once(dirname(__FILE__) . '/lib/mochaformatter.php');
 
@@ -14,4 +15,4 @@ if ($handle = opendir($testDir)) {
 	}
 }
 
-\pecs\run(new \pecs\MochaFormatter());
+\pecs\run(new \pecs\MochaFormatter(array('growl' => true)));

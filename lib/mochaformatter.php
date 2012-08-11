@@ -15,6 +15,13 @@ class MochaFormatter extends Formatter {
     );
 
 	var $failed = 0;
+	var $passed = 0;
+
+	var $options = array();
+
+    function __construct($options) {
+        $this->options = $options;
+    }
 
     function color($string, $color) {
         return sprintf("\033[%dm%s\033[0m", self::$colors[$color], $string);
@@ -23,6 +30,7 @@ class MochaFormatter extends Formatter {
     function before() {
         $this->startTime = microtime(true);
 		$this->failed = 0;
+		$this->passed = 0;
     }
 
     function beforeSuite($suite) {
@@ -35,11 +43,11 @@ class MochaFormatter extends Formatter {
     }
 
     function beforeSpec($spec) {
-        // echo "- {$spec->description}: ";
     }
 
     function afterSpec($spec) {
         if ($spec->passed()) {
+			$this->passed++;
             echo $this->color('    ✓ ', 'green') . $spec->description . "\n";
         } else {
 			$this->failed++;
@@ -53,6 +61,7 @@ class MochaFormatter extends Formatter {
     function after() {
         $this->endTime = microtime(true);
         $this->runTime = $this->endTime - $this->startTime;
+		$elapsed = number_format($this->runTime * 1000, 1);
 
         $passed = $failed = $total = 0;
         foreach (runner()->specs as $spec) {
@@ -69,8 +78,6 @@ class MochaFormatter extends Formatter {
 		if ($failed) {
 			echo "\n\n" . $this->color('  ✖ ' . $failed . ' of ' . $total . ' failed: ', 'red') . "\n\n";
 		} else {
-			$elapsed = number_format($this->runTime * 1000, 1);
-
 			echo "\n\n" . $this->color('  ✓ ' . $total . ' test' . ($total === 1 ? '' : 's') . ' complete', 'green') .
 				          $this->color(" ($elapsed ms)\n\n", 'white');
 		}
@@ -95,9 +102,7 @@ class MochaFormatter extends Formatter {
             }
         }
 
-        $this->endTime = microtime(true);
-        $this->runTime = $this->endTime - $this->startTime;
-        $this->banner($passed, $failed);
+        $this->banner($this->passed, $this->failed);
     }
 
 
@@ -106,13 +111,15 @@ class MochaFormatter extends Formatter {
 	}
 
     function banner($passed, $failed) {
-		/*
-        echo "\nFinished in ".number_format($this->runTime, 4)." seconds\n\n";
-        echo $this->color('Passed: ', 'bold');
-        echo $this->color($passed, 'green');
-        echo $this->color(' Failed: ', 'bold');
-        echo $this->color($failed, 'red');
-        echo "\n\n";
-		 */
+		$total = $passed + $failed;
+		$elapsed = number_format($this->runTime * 1000, 1);
+
+		if ($this->options['growl'] === true) {
+			if ($failed) {
+				`growlnotify --image images/error.png -t "Failed" -m "$failed of $total tests failed"`;
+			} else {
+				`growlnotify --image images/ok.png -t "Passed" -m "$total tests passed in ${elapsed}ms"`;
+			}
+		}
     }
 }
