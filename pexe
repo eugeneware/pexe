@@ -3,6 +3,17 @@
 // Make sure we don't time out
 set_time_limit(0);
 
+// process command line arguments
+array_shift($argv);
+if (count($argv) == 0) {
+	$argv = array('./tests/*.php');
+}
+
+$files = array();
+foreach ($argv as $arg) {
+	$files = array_merge($files, glob($arg));
+}
+
 // Include the testing libraries
 function safeInclude($filename) {
 	if (file_exists($filename)) {
@@ -77,17 +88,14 @@ function stop() {
 }
 
 // Watch the folder for changes
-function watch($folder = './tests') {
+function watch($files) {
 	static $_cache = array();
 
-	$modified = array();
-
 	clearstatcache();
-	if ($handle = opendir($folder)) {
-
-		while (false !== ($entry = readdir($handle))) {
-			if (preg_match("/.*\.php$/sim", $entry)) {
-				$file = $folder . '/' . $entry;
+	$modified = array();
+	foreach ($files as $file) {
+		if (preg_match("/.*\.php$/sim", $file)) {
+			if (file_exists($file)) {
 				$stat = stat($file);
 
 				if (isset($_cache[$file])) {
@@ -108,16 +116,16 @@ function watch($folder = './tests') {
 }
 
 // Watch folder for changes and then run the tests when stuff changes
-function testWatch($folder = './tests') {
+function testWatch($files) {
 	$frames = frames();
 
 	hideCursor();
 
 	while (true) {
 		play($frames);
-		$modified = watch();
+		$modified = watch($files);
 		if ($modified) {
-			runTests();
+			runTests($files);
 		}
 	}
 
@@ -127,10 +135,20 @@ function testWatch($folder = './tests') {
 }
 
 // Run the tests
-function runTests() {
+function runTests($files) {
+	global $argv;
+
 	echo "\n\n";
 	$path = dirname(__FILE__) . '/pexeRunner';
-	echo `$path`;
+	$pid= pcntl_fork();
+	if ($pid) {
+		// parent
+		pcntl_waitpid($pid, $status);
+	} else {
+		// child
+		pcntl_exec($path, $argv);
+	}
 }
 
-testWatch();
+// Start Watching
+testWatch($files);
