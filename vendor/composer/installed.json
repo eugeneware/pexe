@@ -1,0 +1,24 @@
+[
+    {
+        "name": "noonat/pecs",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "time": "2012-07-10 05:09:32",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/noonat/pecs",
+            "reference": "0b911eebf01e5762d25dfe53bc85dcc60801e3ed"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/noonat/pecs/zipball/0b911eebf01e5762d25dfe53bc85dcc60801e3ed",
+            "reference": "0b911eebf01e5762d25dfe53bc85dcc60801e3ed",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "type": "library",
+        "installation-source": "source"
+    }
+]

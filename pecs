@@ -1,7 +1,6 @@
 #!/usr/bin/env php
 <?php
-require_once(dirname(__FILE__) . '/vendor/autoload.php');
-require_once(dirname(__FILE__) . '/vendor/pecs/lib/pecs.php');
+require_once(dirname(__FILE__) . '/vendor/noonat/pecs/lib/pecs.php');
 require_once(dirname(__FILE__) . '/lib/mochaformatter.php');
 
 $testDir = './tests';
