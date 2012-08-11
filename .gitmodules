@@ -1,3 +1,0 @@
-[submodule "vendor/pecs"]
-	path = vendor/pecs
-	url = git@github.com:nharbour/pecs.git
