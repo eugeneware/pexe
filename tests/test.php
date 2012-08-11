@@ -1,7 +1,4 @@
 <?php
-require "vendor/pecs/lib/pecs.php";
-require "mochaformatter.php";
-
 describe('my first bdd test', function() {
 	it('should run this code', function() {
 		expect(true)->to_equal(true);
@@ -34,6 +31,3 @@ describe('handle exceptions', function() {
 		return true;
 	});
 });
-
-\pecs\run(new \pecs\MochaFormatter());
-// \pecs\run();
