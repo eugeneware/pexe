@@ -7,6 +7,9 @@
             "email": "eugene@noblesamurai.com"
         }
     ],
+	"bin": [
+		"pexe"
+	],
     "require": {
         "php": ">=5.3.0"
     },
