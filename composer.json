@@ -11,9 +11,9 @@
 		"pexe"
 	],
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=5.3.0",
+        "noonat/pecs": "dev-master"
     },
-    "require": {
-		"noonat/pecs": "dev-master"
-    }
+	"minimum-stability": "dev",
+	"license": "MIT"
 }

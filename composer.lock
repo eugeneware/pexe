@@ -1,5 +1,5 @@
 {
-    "hash": "35d20676aac0152aa6330068583feb83",
+    "hash": "2b9520640800e0eced4c5c5013aec517",
     "packages": [
         {
             "package": "noonat/pecs",
@@ -12,7 +12,7 @@
     "aliases": [
 
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "noonat/pecs": 20
     }
