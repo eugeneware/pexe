@@ -1,7 +1,13 @@
 #!/usr/bin/env php
 <?php
-require_once(dirname(__FILE__) . '/vendor/noonat/pecs/lib/pecs.php');
-require_once(dirname(__FILE__) . '/lib/mochaformatter.php');
+// Include the testing libraries
+try {
+	@include_once(dirname(__FILE__) . '/vendor/noonat/pecs/lib/pecs.php');
+} catch (Exception $e) {
+	include_once(dirname(__FILE__) . '/../../noonat/pecs/lib/pecs.php');
+}
+
+include_once(dirname(__FILE__) . '/lib/mochaformatter.php');
 
 $testDir = './tests';
 

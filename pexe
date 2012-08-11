@@ -5,7 +5,7 @@ set_time_limit(0);
 
 // Include the testing libraries
 try {
-	include_once(dirname(__FILE__) . '/vendor/noonat/pecs/lib/pecs.php');
+	@include_once(dirname(__FILE__) . '/vendor/noonat/pecs/lib/pecs.php');
 } catch (Exception $e) {
 	include_once(dirname(__FILE__) . '/../../noonat/pecs/lib/pecs.php');
 }
