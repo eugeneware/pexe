@@ -4,11 +4,14 @@
 set_time_limit(0);
 
 // Include the testing libraries
-try {
-	@include_once(dirname(__FILE__) . '/vendor/noonat/pecs/lib/pecs.php');
-} catch (Exception $e) {
-	include_once(dirname(__FILE__) . '/../../noonat/pecs/lib/pecs.php');
+function safeInclude($filename) {
+	if (file_exists($filename)) {
+		require_once($filename);
+	}
 }
+
+safeInclude(dirname(__FILE__) . '/../../noonat/pecs/lib/pecs.php');
+safeInclude(dirname(__FILE__) . '/vendor/noonat/pecs/lib/pecs.php');
 
 include_once(dirname(__FILE__) . '/lib/mochaformatter.php');
 
