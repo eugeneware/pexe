@@ -21,9 +21,7 @@ function safeInclude($filename) {
 	}
 }
 
-safeInclude(dirname(__FILE__) . '/../../noonat/pecs/lib/pecs.php');
-safeInclude(dirname(__FILE__) . '/vendor/noonat/pecs/lib/pecs.php');
-
+require_once(__DIR__ . '/vendor/autoload.php');
 include_once(dirname(__FILE__) . '/lib/mochaformatter.php');
 
 // Handle Signals

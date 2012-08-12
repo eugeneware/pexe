@@ -9,25 +9,16 @@ describe('my first bdd test', function() {
 	});
 });
 
-describe('check results of functions', function() {
-	it('should fail', function() {
-		assert(false);
-		return false;
-	});
-
-	it('should pass', function() {
-		return true;
-	});
-});
-
 describe('handle exceptions', function() {
 	it('should handle throwing exceptions', function() {
-		throw new Exception('Blah');
-		return true;
+		expect(function() {
+			throw new Exception('Blah');
+		})->to_throw('Exception');
 	});
 
 	it('should handle math exceptions', function() {
-		$x = 42 / 0;
-		return true;
+		expect(function() {
+			$x = 42 / 0;
+		})->to_throw();
 	});
 });
