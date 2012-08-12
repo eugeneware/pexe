@@ -14,15 +14,8 @@ foreach ($argv as $arg) {
 	$files = array_merge($files, glob($arg));
 }
 
-// Include the testing libraries
-function safeInclude($filename) {
-	if (file_exists($filename)) {
-		require_once($filename);
-	}
-}
-
 require_once(__DIR__ . '/vendor/autoload.php');
-include_once(dirname(__FILE__) . '/lib/mochaformatter.php');
+require_once(__DIR__ . '/lib/mochaformatter.php');
 
 // Handle Signals
 declare(ticks = 1);

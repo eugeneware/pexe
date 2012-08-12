@@ -1,5 +1,6 @@
 <?php
 namespace pecs;
+require_once(__DIR__ . '/../vendor/autoload.php');
 
 class MochaFormatter extends Formatter {
     static $colors = array(

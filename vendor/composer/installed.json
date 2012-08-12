@@ -1,24 +1,35 @@
 [
     {
-        "name": "noonat/pecs",
+        "name": "nharbour/pecs",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
-        "time": "2012-07-09 19:09:32",
+        "time": "2012-08-12 10:34:39",
         "source": {
             "type": "git",
-            "url": "https://github.com/noonat/pecs",
-            "reference": "0b911eebf01e5762d25dfe53bc85dcc60801e3ed"
+            "url": "https://github.com/nharbour/pecs",
+            "reference": "10c8abb3f400a6f8814cfb7b81d47436842cd1e2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://github.com/noonat/pecs/zipball/0b911eebf01e5762d25dfe53bc85dcc60801e3ed",
-            "reference": "0b911eebf01e5762d25dfe53bc85dcc60801e3ed",
+            "url": "https://github.com/nharbour/pecs/zipball/10c8abb3f400a6f8814cfb7b81d47436842cd1e2",
+            "reference": "10c8abb3f400a6f8814cfb7b81d47436842cd1e2",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.0"
         },
+        "bin": [
+            "bin/pecs"
+        ],
         "type": "library",
-        "installation-source": "source"
+        "installation-source": "source",
+        "license": [
+            "MIT"
+        ],
+        "autoload": {
+            "files": [
+                "lib/pecs.php"
+            ]
+        }
     }
 ]

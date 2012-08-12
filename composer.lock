@@ -1,11 +1,11 @@
 {
-    "hash": "3fec544a5fc58fa59a00cd8025910b45",
+    "hash": "bf34f1119a84621ecb9d3b4375c3fa4b",
     "packages": [
         {
-            "package": "noonat/pecs",
+            "package": "nharbour/pecs",
             "version": "dev-master",
-            "source-reference": "0b911eebf01e5762d25dfe53bc85dcc60801e3ed",
-            "commit-date": "1341932972"
+            "source-reference": "10c8abb3f400a6f8814cfb7b81d47436842cd1e2",
+            "commit-date": "1344767679"
         }
     ],
     "packages-dev": null,
@@ -14,6 +14,6 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "noonat/pecs": 20
+        "nharbour/pecs": 20
     }
 }

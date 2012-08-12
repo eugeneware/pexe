@@ -25,7 +25,7 @@ if (!class_exists('ComposerAutoloaderInit', false)) {
 
             $loader->register();
 
-            require $baseDir . '/vendor/noonat/pecs/lib/pecs.php';
+            require $vendorDir . '/nharbour/pecs/lib/pecs.php';
 
             return $loader;
         }

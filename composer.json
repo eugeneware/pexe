@@ -12,11 +12,8 @@
 	],
     "require": {
         "php": ">=5.3.0",
-        "noonat/pecs": "dev-master"
+        "nharbour/pecs": "dev-master"
     },
-	"autoload": { 
-		"files": ["vendor/noonat/pecs/lib/pecs.php"] 
-	},
 	"minimum-stability": "dev",
 	"license": "MIT"
 }
