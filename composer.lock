@@ -1,19 +1,57 @@
 {
-    "hash": "bf34f1119a84621ecb9d3b4375c3fa4b",
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "14fcb0cdfa89fdfcad3da585b83fab6d",
     "packages": [
         {
-            "package": "nharbour/pecs",
+            "name": "eugeneware/pecs",
             "version": "dev-master",
-            "source-reference": "10c8abb3f400a6f8814cfb7b81d47436842cd1e2",
-            "commit-date": "1344767679"
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eugeneware/pecs.git",
+                "reference": "1092d9edc7115d82e22fb2e649646409e01a5983"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eugeneware/pecs/zipball/1092d9edc7115d82e22fb2e649646409e01a5983",
+                "reference": "1092d9edc7115d82e22fb2e649646409e01a5983",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "bin": [
+                "bin/pecs"
+            ],
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "lib/pecs.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "time": "2013-07-02 09:39:45"
         }
     ],
-    "packages-dev": null,
+    "packages-dev": [
+
+    ],
     "aliases": [
 
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "nharbour/pecs": 20
-    }
+        "eugeneware/pecs": 20
+    },
+    "platform": {
+        "php": ">=5.3.0"
+    },
+    "platform-dev": [
+
+    ]
 }
