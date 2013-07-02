@@ -1,5 +1,5 @@
 {
-    "name": "eugneware/pexe",
+    "name": "eugeneware/pexe",
     "description": "PECS BDD Test Command-Line Harness with Mocha-Style Reporting and Growl Notifications",
     "authors": [
         {
